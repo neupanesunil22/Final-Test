@@ -1,135 +1,731 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mailseal – Agentic AI Email Infrastructure</title>
-    <meta name="description" content="50+ qualified B2B meetings every month — fully autonomous AI agents. No SDRs. No agency.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;900&display=swap" rel="stylesheet">
-    <style>
-        :root { --pink:#FF00C7; --yellow:#FFD600; --black:#000; --dark:#0F001A; }
-        *{margin:0;padding:0;box-sizing:border-box;}
-        body{font-family:'Inter',sans-serif;background:var(--black);color:#fff;overflow-x:hidden;}
-        .container{max-width:1400px;margin:0 auto;padding:0 2rem;}
-
-        header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(0,0,0,0.95);backdrop-filter:blur(20px);padding:1.5rem 0;border-bottom:3px solid var(--pink);}
-        .header-inner{display:flex;justify-content:space-between;align-items:center;}
-        .logo{font-size:2.4rem;font-weight:900;background:linear-gradient(90deg,var(--pink),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-        .btn-trial{background:var(--yellow);color:#000;padding:1rem 2.4rem;border-radius:50px;font-weight:900;font-size:1.1rem;}
-
-        .hero{min-height:100vh;display:grid;place-items:center;text-align:center;background:radial-gradient(circle at top right,#FF00C780,transparent 50%),radial-gradient(circle at bottom left,#FFD60050,transparent 60%),var(--black);}
-        .hero h1{font-size:5.8rem;font-weight:900;line-height:1;background:linear-gradient(90deg,#fff,var(--yellow),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-        .hero h2{font-size:3rem;color:var(--yellow);margin:1.5rem 0;font-weight:700;}
-        .hero p{font-size:1.5rem;max-width:900px;margin:2rem auto;opacity:0.9;}
-        .ctas{margin-top:3rem;display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;}
-        .btn-demo{border:2px solid var(--pink);padding:1rem 2.8rem;border-radius:50px;color:#fff;font-weight:700;font-size:1.1rem;}
-
-        .section{padding:10rem 0;}
-        .section-title{font-size:4rem;text-align:center;margin-bottom:5rem;color:var(--pink);font-weight:900;}
-
-        .agents-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:3rem;}
-        .agent-card{background:rgba(255,0,199,0.1);border:2px solid var(--pink);border-radius:40px;padding:3rem;text-align:center;transition:all .4s;}
-        .agent-card:hover{transform:translateY(-20px);box-shadow:0 30px 80px rgba(255,0,199,0.4);}
-        .agent-card img{width:240px;filter:drop-shadow(0 0 50px var(--pink));margin-bottom:2rem;}
-        .agent-card h3{font-size:2.4rem;color:var(--yellow);margin:1.5rem 0;}
-
-        .industries-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem;margin-top:3rem;}
-        .industry{background:linear-gradient(135deg,rgba(255,215,0,0.15),rgba(255,0,199,0.15));border:1px solid var(--pink);border-radius:24px;padding:2rem;text-align:center;font-weight:700;font-size:1.1rem;}
-
-        .funnel{max-width:100%;border-radius:30px;box-shadow:0 0 120px rgba(255,215,0,0.5);margin:4rem 0;}
-
-        .final-cta{padding:12rem 0;text-align:center;background:linear-gradient(135deg,var(--pink),var(--yellow));color:#000;clip-path:polygon(0 15%,100% 0%,100% 85%,0% 100%);}
-        .final-cta h1{font-size:5.5rem;font-weight:900;}
-
-        footer{padding:4rem 0;text-align:center;background:var(--dark);color:#888;}
-        @media(max-width:768px){.hero h1{font-size:3.6rem;}.hero h2{font-size:2rem;}.ctas{flex-direction:column;align-items:center;}}
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mailseal — Autonomous AI Lead Generation Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #00ff88;
+      --primary-dark: #00cc6a;
+      --secondary: #8b5cff;
+      --accent: #ff2e7a;
+      --dark: #0a0a0f;
+      --dark-gray: #1a1a23;
+      --light-gray: #e0e0e8;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background-color: var(--dark); color: #fff; line-height: 1.6; overflow-x: hidden; }
+    
+    /* Modern gradient background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 10% 20%, rgba(0, 255, 136, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 30%, rgba(139, 92, 255, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 50% 80%, rgba(255, 46, 122, 0.03) 0%, transparent 40%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(1rem, 3vw, 2rem); position: relative; z-index: 1; }
+    
+    /* Header - More Professional */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(10, 10, 15, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 1rem 0;
+    }
+    
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 900;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .logo-badge {
+      font-size: 0.7rem;
+      background: var(--primary);
+      color: var(--dark);
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      font-weight: 700;
+      margin-left: 0.5rem;
+    }
+    
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    
+    .nav-links a {
+      color: var(--light-gray);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+    
+    .nav-links a:hover { color: var(--primary); }
+    
+    .btn-demo {
+      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+      color: var(--dark);
+      padding: 0.7rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.3s;
+      box-shadow: 0 4px 20px rgba(0, 255, 136, 0.2);
+    }
+    
+    .btn-demo:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(0, 255, 136, 0.3);
+    }
+    
+    /* Hero Section - Product Focused */
+    .hero {
+      padding-top: 140px;
+      padding-bottom: 4rem;
+      text-align: center;
+    }
+    
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .hero-gradient {
+      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+      color: var(--light-gray);
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+      opacity: 0.9;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+      color: var(--dark);
+      padding: 1rem 2.5rem;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s;
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      padding: 1rem 2.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0, 255, 136, 0.3);
+    }
+    
+    .btn-secondary:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    
+    /* Product Screenshot */
+    .product-preview {
+      background: linear-gradient(135deg, rgba(10, 10, 15, 0.9), rgba(26, 26, 35, 0.9));
+      border-radius: 16px;
+      padding: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      margin-top: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .product-preview::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    }
+    
+    .screenshot-placeholder {
+      background: linear-gradient(135deg, #1a1a23, #252533);
+      border-radius: 8px;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .screenshot-content {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 1rem;
+      padding: 2rem;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .dashboard-sidebar {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 6px;
+      padding: 1.5rem;
+    }
+    
+    .dashboard-main {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 6px;
+      padding: 1.5rem;
+    }
+    
+    /* Metrics Section */
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 4rem 0;
+    }
+    
+    .metric-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    
+    .metric-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(0, 255, 136, 0.2);
+    }
+    
+    .metric-value {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Features */
+    .features {
+      padding: 4rem 0;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .feature-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+    
+    .feature-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-5px);
+    }
+    
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(0, 255, 136, 0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+      font-size: 1.5rem;
+    }
+    
+    /* How It Works */
+    .workflow {
+      padding: 4rem 0;
+      background: rgba(10, 10, 15, 0.5);
+      margin: 4rem 0;
+      border-radius: 20px;
+    }
+    
+    .workflow-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      max-width: 800px;
+      margin: 3rem auto;
+    }
+    
+    .step {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 12px;
+      border-left: 3px solid var(--primary);
+    }
+    
+    .step-number {
+      width: 40px;
+      height: 40px;
+      background: var(--primary);
+      color: var(--dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    
+    /* CTA */
+    .cta {
+      padding: 5rem 0;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(10, 10, 15, 0.9), rgba(26, 26, 35, 0.9));
+      border-radius: 20px;
+      margin: 4rem 0;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .cta h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 1rem;
+    }
+    
+    .form-group {
+      max-width: 500px;
+      margin: 2rem auto;
+    }
+    
+    .email-input {
+      width: 100%;
+      padding: 1rem 1.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      color: #fff;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .email-input:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    
+    /* Footer */
+    footer {
+      padding: 3rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      margin-top: 4rem;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 3rem;
+      margin-bottom: 2rem;
+    }
+    
+    .footer-links a {
+      color: var(--light-gray);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.5rem;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover { color: var(--primary); }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .social-links a:hover {
+      background: var(--primary);
+      color: var(--dark);
+      transform: translateY(-3px);
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero-buttons { flex-direction: column; }
+      .screenshot-content { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-
-    <header>
-        <div class="container header-inner">
-            <div class="logo">Mailseal</div>
-            <a href="#" class="btn-trial">Start Free Trial →</a>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">
+          Mailseal
+          <span class="logo-badge">PRODUCT</span>
         </div>
-    </header>
+        <div class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#integrations">Integrations</a>
+          <a href="#docs">Documentation</a>
+          <a href="#demo" class="btn-demo">
+            <i class="fas fa-play-circle"></i> Live Demo
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
 
-    <section class="hero">
-        <div class="container">
-            <h1>50+ qualified B2B / meetings<br>every single month</h1>
-            <h2>Fully autonomous AI agents<br>that never sleep</h2>
-            <p>The first Agentic AI Email Infrastructure that researches, writes, and books meetings at scale — no SDRs, no agency, no off-the-shelf garbage.</p>
-            <div class="ctas">
-                <a href="#" class="btn-trial" style="font-size:1.5rem;padding:1.3rem 3.5rem;">Start Free Trial — 14 days, no card</a>
-                <a href="#" class="btn-demo">Watch 90-sec Demo →</a>
+  <section class="hero">
+    <div class="container">
+      <h1>
+        <span class="hero-gradient">Autonomous Lead Generation</span><br>
+        Powered by AI Agents
+      </h1>
+      <p class="hero-subtitle">
+        Mailseal is a complete platform that finds, engages, and books meetings with your ideal customers — 
+        running 24/7 with zero manual intervention.
+      </p>
+      <div class="hero-buttons">
+        <a href="#cta" class="btn-primary">
+          <i class="fas fa-rocket"></i> Start Free Trial
+        </a>
+        <a href="#demo" class="btn-secondary">
+          <i class="fas fa-play"></i> Watch Product Demo
+        </a>
+      </div>
+      
+      <!-- Product Screenshot Section -->
+      <div class="product-preview">
+        <div class="screenshot-placeholder">
+          <div class="screenshot-content">
+            <div class="dashboard-sidebar">
+              <div style="margin-bottom: 1rem; color: var(--primary); font-weight: 600;">CAMPAIGN DASHBOARD</div>
+              <div style="background: rgba(0, 255, 136, 0.1); padding: 0.5rem; border-radius: 4px; margin-bottom: 0.5rem;">
+                Active Campaigns: 12
+              </div>
+              <div style="padding: 0.5rem; margin-bottom: 0.5rem;">Leads This Month: 347</div>
+              <div style="padding: 0.5rem; margin-bottom: 0.5rem;">Meetings Booked: 28</div>
             </div>
-            <p style="margin-top:3rem;color:var(--yellow);font-weight:700;font-size:1.2rem;">Private beta • 80+ Series A–C startups • Limited seats left</p>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Your Three AI Agents</h2>
-            <div class="agents-grid">
-                <div class="agent-card">
-                    <img src="seal.png" alt="Seal the Sender">
-                    <h3>Seal the Sender</h3>
-                    <p>Writes hyper-personalized emails that always land in the primary inbox.</p>
+            <div class="dashboard-main">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                <div>
+                  <div style="font-weight: 600; color: var(--primary);">AI Agent Performance</div>
+                  <div style="font-size: 0.9rem; opacity: 0.7;">Real-time monitoring</div>
                 </div>
-                <div class="agent-card">
-                    <img src="octopus.png" alt="Octopus the Data Miner">
-                    <h3>Octopus the Data Miner</h3>
-                    <p>Instantly builds verified, intent-rich lead lists from the entire internet.</p>
+                <div style="background: rgba(0, 255, 136, 0.1); padding: 0.3rem 0.8rem; border-radius: 4px; font-weight: 600;">
+                  LIVE
                 </div>
-                <div class="agent-card">
-                    <img src="jellyfish.png" alt="Jellyfish the Lead Scorer">
-                    <h3>Jellyfish the Lead Scorer</h3>
-                    <p>Scores replies in real time and books qualified meetings straight to your calendar.</p>
-                </div>
+              </div>
+              <div style="background: rgba(255, 255, 255, 0.05); height: 200px; border-radius: 4px; display: flex; align-items: center; justify-content: center;">
+                📊 Campaign Analytics Dashboard
+              </div>
             </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section class="section" style="background:var(--dark);">
-        <div class="container">
-            <h2 class="section-title">Built for the Hardest Verticals</h2>
-            <div class="industries-grid">
-                <div class="industry">AI & ML Startups</div>
-                <div class="industry">Climate Tech</div>
-                <div class="industry">Fintech Infrastructure</div>
-                <div class="industry">Cybersecurity</div>
-                <div class="industry">Biotech & Pharma</div>
-                <div class="industry">MedTech</div>
-                <div class="industry">Industrial SaaS</div>
-                <div class="industry">Renewable Energy</div>
-            </div>
+  <!-- Metrics Section -->
+  <section class="container">
+    <div class="metrics">
+      <div class="metric-card">
+        <div class="metric-value">50+</div>
+        <p>Qualified Meetings/Month</p>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">24/7</div>
+        <p>Autonomous Operation</p>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">95%</div>
+        <p>Inbox Placement Rate</p>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">2h</div>
+        <p>Setup Time</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="features">
+    <div class="container">
+      <h2 style="text-align: center; font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 1rem;">
+        Complete Platform for Autonomous Outreach
+      </h2>
+      <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem; color: var(--light-gray);">
+        Everything you need to run fully-automated lead generation campaigns
+      </p>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-robot"></i>
+          </div>
+          <h3>AI Agent Orchestration</h3>
+          <p>Coordinate multiple AI agents working together to find, qualify, and engage leads autonomously.</p>
         </div>
-    </section>
-
-    <section class="section">
-        <div class="container" style="text-align:center;">
-            <h2 class="section-title">Own Your Funnel Again</h2>
-            <img src="funnel.png" class="funnel" alt="Pipeline results">
-            <p style="margin-top:2rem;opacity:0.8;font-size:1.1rem;">Typical private-beta results · 2025</p>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-envelope-open-text"></i>
+          </div>
+          <h3>Smart Email Infrastructure</h3>
+          <p>Built-in warmup, deliverability monitoring, and reputation management for maximum inbox placement.</p>
         </div>
-    </section>
-
-    <section class="final-cta">
-        <div class="container">
-            <h1>Let AI Agents Run Your Outbound<br>While You Close Deals</h1>
-            <br><br>
-            <a href="#" class="btn-trial" style="font-size:2.2rem;padding:1.6rem 5rem;background:#000;color:var(--yellow);">
-                Start Free Trial — No credit card
-            </a>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-calendar-check"></i>
+          </div>
+          <h3>Automatic Meeting Booking</h3>
+          <p>AI schedules meetings directly on your calendar when leads are ready to talk.</p>
         </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>© 2025 Mailseal • Agentic AI Email Infrastructure</p>
-            <p>hello@mailseal.co • Private Beta</p>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <h3>Real-time Lead Intelligence</h3>
+          <p>Enrich leads with LinkedIn data, company info, and buying signals automatically.</p>
         </div>
-    </footer>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>Predictive Lead Scoring</h3>
+          <p>Machine learning identifies which leads are most likely to convert before you engage.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-plug"></i>
+          </div>
+          <h3>Enterprise Integrations</h3>
+          <p>Connect with your existing CRM, calendar, and marketing tools seamlessly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- How It Works -->
+  <section id="how-it-works" class="workflow">
+    <div class="container">
+      <h2 style="text-align: center; font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 1rem;">
+        How Mailseal Works
+      </h2>
+      <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem; color: var(--light-gray);">
+        A complete end-to-end workflow for autonomous lead generation
+      </p>
+      
+      <div class="workflow-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div>
+            <h3>Define Your Ideal Customer Profile</h3>
+            <p>Set targeting criteria: industry, company size, job titles, and more.</p>
+          </div>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">2</div>
+          <div>
+            <h3>AI Agents Find & Qualify Leads</h3>
+            <p>Our system scans multiple data sources to identify and verify prospects.</p>
+          </div>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">3</div>
+          <div>
+            <h3>Personalized Outreach at Scale</h3>
+            <p>AI crafts and sends hyper-personalized emails that land in primary inboxes.</p>
+          </div>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">4</div>
+          <div>
+            <h3>Automatic Meeting Booking</h3>
+            <p>When leads respond positively, AI schedules meetings on your calendar.</p>
+          </div>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">5</div>
+          <div>
+            <h3>Results Dashboard & Optimization</h3>
+            <p>Monitor performance, adjust strategies, and scale successful campaigns.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta" class="cta">
+    <div class="container">
+      <h2>Ready for Autonomous Lead Generation?</h2>
+      <p style="max-width: 600px; margin: 1rem auto 0; color: var(--light-gray);">
+        Join the waitlist for early access to Mailseal. Limited spots available for our private beta.
+      </p>
+      
+      <div class="form-group">
+        <input type="email" placeholder="Your work email" class="email-input">
+        <button class="btn-primary" style="width: 100%;">
+          <i class="fas fa-lock"></i> Join Waitlist
+        </button>
+      </div>
+      
+      <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 2rem;">
+        <i class="fas fa-shield-alt"></i> Your data is secure. We never share your information.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">Mailseal</h3>
+          <p style="color: var(--light-gray); margin-bottom: 1rem;">
+            Autonomous AI lead generation platform for modern sales teams.
+          </p>
+          <div class="social-links">
+            <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h4 style="margin-bottom: 1rem;">Product</h4>
+          <a href="#features">Features</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#integrations">Integrations</a>
+          <a href="#api">API</a>
+        </div>
+        
+        <div class="footer-links">
+          <h4 style="margin-bottom: 1rem;">Resources</h4>
+          <a href="#docs">Documentation</a>
+          <a href="#support">Support</a>
+          <a href="#blog">Blog</a>
+          <a href="#status">System Status</a>
+          <a href="#changelog">Changelog</a>
+        </div>
+        
+        <div class="footer-links">
+          <h4 style="margin-bottom: 1rem;">Company</h4>
+          <a href="#about">About</a>
+          <a href="#careers">Careers</a>
+          <a href="#contact">Contact</a>
+          <a href="#privacy">Privacy</a>
+          <a href="#terms">Terms</a>
+        </div>
+      </div>
+      
+      <div style="text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+        <p style="color: var(--light-gray); font-size: 0.9rem;">
+          © 2024 Mailseal. All rights reserved. 
+          <span style="opacity: 0.7;">•</span> 
+          <span style="opacity: 0.7;">Mailseal is a registered product.</span>
+        </p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
